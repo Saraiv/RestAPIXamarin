@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RestAPIXamarin.Views.LoginPage">
+
+    <StackLayout x:Name="MasterLayout">
+        <StackLayout x:Name="Logo" VerticalOptions="FillAndExpand">
+            <Image x:Name="LoginIcon" Source="Recourses/login.png" Margin="0, 80, 0, 0" />
+        </StackLayout>
+        
+        <StackLayout x:Name="LoginLayout" VerticalOptions="StartAndExpand">
+            <StackLayout.Padding>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>40, 0, 40, 0</OnIdiom.Phone>
+                    <OnIdiom.Tablet>140, 150, 140, 0</OnIdiom.Tablet>
+                </OnIdiom>
+            </StackLayout.Padding>
+
+            <ActivityIndicator x:Name="ActivitySpinner" Color="LightBlue" IsRunning="true" />
+
+            <Label x:Name="labelUsername" Text="Username" />
+            <Entry x:Name="inputUsername" Placeholder="Username" />
+            <Label x:Name="labelPassword" Text="Password" />
+            <Entry x:Name="inputPassword" Placeholder="Password" />
+            <Button x:Name="buttonSignIn" Text="Sign In" Clicked="SignIn" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
