@@ -24,6 +24,7 @@ namespace RestAPIXamarin.Views
             labelPassword.TextColor = Constants.MainTextColor;
             ActivitySpinner.IsVisible = false;
             LoginIcon.HeightRequest = Constants.LoginIconHeight;
+            App.StartCheckIfInternet(labelNoInternet, this);
 
             inputUsername.Completed += (s, e) => inputPassword.Focus();
             inputPassword.Completed += (s, e) => SignIn(s, e);

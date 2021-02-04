@@ -24,7 +24,7 @@ namespace RestAPIXamarin.Data
             postData.Add(new KeyValuePair<string, string>("username", user.username));
             postData.Add(new KeyValuePair<string, string>("password", user.password));
             var content = new FormUrlEncodedContent(postData);
-            var webUrl = "www.test.com";
+            //var webUrl = "www.test.com";
             var response = await PostResponseLogin<Token>(Constants.loginUrl, content);
             DateTime dt = new DateTime();
             dt = DateTime.Today;

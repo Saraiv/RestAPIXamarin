@@ -13,5 +13,6 @@ namespace RestAPIXamarin.Models
         public static int LoginIconHeight = 120;
 
         public static string loginUrl = "https://test.com/api/Auth/Login";
+        public static string noInternetText = "No internet, please reconnect!";
     }
 }

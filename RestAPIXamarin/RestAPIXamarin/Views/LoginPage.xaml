@@ -5,7 +5,8 @@
 
     <StackLayout x:Name="MasterLayout">
         <StackLayout x:Name="Logo" VerticalOptions="FillAndExpand">
-            <Image x:Name="LoginIcon" Source="Recourses/login.png" Margin="0, 80, 0, 0" />
+            <Label x:Name="labelNoInternet" HorizontalTextAlignment="center" TextColor="White" BackgroundColor="Red" />
+            <Image x:Name="LoginIcon" Source="login.png" Margin="0, 80, 0, 0" />
         </StackLayout>
         
         <StackLayout x:Name="LoginLayout" VerticalOptions="StartAndExpand">
@@ -21,7 +22,7 @@
             <Label x:Name="labelUsername" Text="Username" />
             <Entry x:Name="inputUsername" Placeholder="Username" />
             <Label x:Name="labelPassword" Text="Password" />
-            <Entry x:Name="inputPassword" Placeholder="Password" />
+            <Entry x:Name="inputPassword" Placeholder="Password" IsPassword="true"/>
             <Button x:Name="buttonSignIn" Text="Sign In" Clicked="SignIn" />
         </StackLayout>
     </StackLayout>
