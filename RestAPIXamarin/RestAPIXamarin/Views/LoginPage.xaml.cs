@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestAPIXamarin.Models;
+using RestAPIXamarin.Views.Menu;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,16 +28,24 @@ namespace RestAPIXamarin.Views
             App.StartCheckIfInternet(labelNoInternet, this);
 
             inputUsername.Completed += (s, e) => inputPassword.Focus();
-            inputPassword.Completed += (s, e) => SignIn(s, e);
+            inputPassword.Completed += (s, e) => SignInAsync(s, e);
         }
 
-        void SignIn(object sender, EventArgs e){
+        async void SignInAsync(object sender, EventArgs e){
             User user = new User(inputUsername.Text, inputPassword.Text);
             if (user.CheckIfUserInputs()){
                 DisplayAlert("Login", "Login Sucess", "Ok!");
-                var result = App.RestServices.Login(user);
+                //var result = await App.RestServices.Login(user);
+                var result = new Token();
+                //if (result.accessToken != null)
                 if (result != null){
-                    App.UserDatabase.SaveUser(user);
+                    //App.UserDatabase.SaveUser(user);
+                    //App.TokenDatabase.SaveToken(result);
+                    if(Device.OS == TargetPlatform.Android){
+                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                    } else if(Device.OS == TargetPlatform.iOS){
+                        await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                    }
                 }
             }else{
                 DisplayAlert("Login", "Error On Login, empty username or password.", "Ok!");

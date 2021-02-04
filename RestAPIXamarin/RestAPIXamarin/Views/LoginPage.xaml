@@ -23,7 +23,7 @@
             <Entry x:Name="inputUsername" Placeholder="Username" />
             <Label x:Name="labelPassword" Text="Password" />
             <Entry x:Name="inputPassword" Placeholder="Password" IsPassword="true"/>
-            <Button x:Name="buttonSignIn" Text="Sign In" Clicked="SignIn" />
+            <Button x:Name="buttonSignIn" Text="Sign In" Clicked="SignInAsync" />
         </StackLayout>
     </StackLayout>
 </ContentPage>

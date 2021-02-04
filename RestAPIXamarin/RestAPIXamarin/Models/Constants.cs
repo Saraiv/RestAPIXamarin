@@ -12,7 +12,7 @@ namespace RestAPIXamarin.Models
         public static Color MainTextColor = Color.FromHex("#333");
         public static int LoginIconHeight = 120;
 
-        public static string loginUrl = "https://test.com/api/Auth/Login";
+        public static string loginUrl = "https://test.com/api/auth/login";
         public static string noInternetText = "No internet, please reconnect!";
     }
 }
