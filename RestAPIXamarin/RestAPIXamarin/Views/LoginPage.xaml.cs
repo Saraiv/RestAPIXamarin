@@ -34,7 +34,7 @@ namespace RestAPIXamarin.Views
         async void SignInAsync(object sender, EventArgs e){
             User user = new User(inputUsername.Text, inputPassword.Text);
             if (user.CheckIfUserInputs()){
-                DisplayAlert("Login", "Login Sucess", "Ok!");
+                await DisplayAlert("Login", "Login Sucess", "Ok!");
                 //var result = await App.RestServices.Login(user);
                 var result = new Token();
                 //if (result.accessToken != null)
@@ -42,13 +42,13 @@ namespace RestAPIXamarin.Views
                     //App.UserDatabase.SaveUser(user);
                     //App.TokenDatabase.SaveToken(result);
                     if(Device.OS == TargetPlatform.Android){
-                        Application.Current.MainPage = new NavigationPage(new Dashboard());
+                        Application.Current.MainPage = new NavigationPage(new MasterDetail());
                     } else if(Device.OS == TargetPlatform.iOS){
-                        await Navigation.PushModalAsync(new NavigationPage(new Dashboard()));
+                        await Navigation.PushModalAsync(new NavigationPage(new MasterDetail()));
                     }
                 }
             }else{
-                DisplayAlert("Login", "Error On Login, empty username or password.", "Ok!");
+                await DisplayAlert("Login", "Error On Login, empty username or password.", "Ok!");
             }
         }
 
